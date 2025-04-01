@@ -18,11 +18,8 @@ jobs:
       with:
         python-version: '3.9'
 
-    - name: Install flit
-      run: pip install flit
-
-    - name: Install yoke
-      run: flit install --deps=all
+    - name: Install sphinx
+      run: pip install sphinx
 
     - name: Build documentation
       run: |
