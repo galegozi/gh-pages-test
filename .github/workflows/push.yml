@@ -18,21 +18,18 @@ jobs:
       with:
         python-version: '3.9'
 
-    - name: Install flit
-      run: pip install flit
-
-    - name: Install yoke
-      run: flit install --deps=all
+    - name: Install sphinx
+      run: pip install sphinx
 
     - name: Build documentation
       run: |
-        sphinx-build -b html docs/ docs/_build/html
+        sphinx-build -M html source .
 
     - name: Upload documentation artifact
       uses: actions/upload-artifact@v3
       with:
         name: documentation
-        path: docs/_build/html
+        path: html
 
   deploy-documentation:
     needs: build-documentation
